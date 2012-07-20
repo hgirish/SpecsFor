@@ -10,18 +10,20 @@ namespace SpecsFor.Mvc
 	{
 		private readonly Func<IWebDriver> _browserFactory;
 
-		public static readonly BrowserDriver InternetExplorer;
+		//public static readonly BrowserDriver InternetExplorer;
 		public static readonly BrowserDriver Firefox;
 
 		static BrowserDriver()
 		{
-			InternetExplorer = new BrowserDriver(() =>
-			                               	{
-			                               		var capabilities = new DesiredCapabilities();
-			                               		capabilities.SetCapability(InternetExplorerDriver.IntroduceInstabilityByIgnoringProtectedModeSettings, true);
+            //InternetExplorer = new BrowserDriver(() =>
+            //                                {
+            //                                    //var capabilities = new DesiredCapabilities();
+            //                                    var options = new InternetExplorerOptions();
+            //                                    options.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
+            //                                    //capabilities.SetCapability(InternetExplorerDriver.IntroduceInstabilityByIgnoringProtectedModeSettings, true);
 
-			                               		return new InternetExplorerDriver(capabilities);
-			                               	});
+            //                                    return new InternetExplorerDriver(options);
+            //                                });
 
 			Firefox = new BrowserDriver(() =>
 			                               	{

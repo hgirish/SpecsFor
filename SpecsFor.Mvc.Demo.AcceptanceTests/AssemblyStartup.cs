@@ -19,7 +19,7 @@ namespace SpecsFor.Mvc.Demo.AcceptanceTests
 			config.BuildRoutesUsing(r => MvcApplication.RegisterRoutes(r));
 			config.RegisterArea<TasksAreaRegistration>();
 
-			config.UseBrowser(BrowserDriver.InternetExplorer);
+			config.UseBrowser(BrowserDriver.Firefox);
 
 			config.InterceptEmailMessagesOnPort(13565);
 

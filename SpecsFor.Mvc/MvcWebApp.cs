@@ -34,11 +34,15 @@ namespace SpecsFor.Mvc
 		static MvcWebApp()
 		{
 			BaseUrl = "http://localhost";
-			Driver = BrowserDriver.InternetExplorer;
+			Driver = BrowserDriver.Firefox;
 		}
 
 		public MvcWebApp()
 		{
+            if (Driver == null)
+            {
+                Driver = BrowserDriver.Firefox;
+            }
 			Browser = Driver.CreateDriver();
 
 			try
@@ -54,8 +58,17 @@ namespace SpecsFor.Mvc
 				}
 			}
 			//If something happens and the class can't be created, we still need to destroy the browser.
-			catch (Exception)
+			catch (Exception ex)
 			{
+                Console.WriteLine("Main exception message:{0}",ex.Message);
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine("Inner exception message:{0}", ex.InnerException.Message);
+                }
+                if (ex.InnerException.InnerException != null)
+                {
+                    Console.WriteLine("Inner Inner exception message:{0}", ex.InnerException.InnerException.Message);
+                }
 				Browser.Quit();
 				Browser.Dispose();
 				throw;

@@ -18,7 +18,7 @@ namespace SpecsFor.Mvc.IIS
 
 		public void Start()
 		{
-			PortNumber = (new Random()).Next(20000, 50000);
+			PortNumber = (new Random()).Next(40000, 50000);
 
 			var startInfo = new ProcessStartInfo
 			                	{
@@ -43,6 +43,7 @@ namespace SpecsFor.Mvc.IIS
 			startInfo.FileName = iisExpress;
 
 			_iisProcess = new Process { StartInfo = startInfo };
+            Console.WriteLine("{0},{1},{2},{3}", startInfo.FileName, PortNumber, startInfo.Arguments, startInfo.ToString());
 			_iisProcess.Start();
 		}
 
