@@ -13,7 +13,7 @@ namespace SpecsFor
 		private readonly ISpecValidator _validator;
 		private readonly List<Exception> _exceptions = new List<Exception>();
 
-		public MoqAutoMocker<T> Mocker { get; private set; }
+		public RhinoAutoMocker<T> Mocker { get; private set; }
 
 		public T SUT { get; set; }
 
@@ -35,7 +35,7 @@ namespace SpecsFor
 
 			try
 			{
-				Mocker = new MoqAutoMocker<T>();
+				Mocker = new RhinoAutoMocker<T>();
 
 				_currentBehaviors.ApplySpecInitTo(_specs);
 
